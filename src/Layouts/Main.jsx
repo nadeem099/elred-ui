@@ -1,11 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 function Main() {
   return (
     <main>
       <div className="bg-white py-5 px-10">
-        <h1 className="text-2xl font-semibold">About Us</h1>
+        {/* <h1 className="text-2xl font-semibold">About Us</h1>
         <div className="flex items-start gap-4 mt-7">
           <div className="flex items-center gap-4 mb-6">
             <img
@@ -41,7 +40,7 @@ function Main() {
           dignissimos et saepe velit. Minima ducimus adipisci odit aliquam?
           Corporis consequuntur ex est maiores modi consequatur deleniti aut
           necessitatibus omnis debitis.
-        </p>
+        </p> */}
       </div>
     </main>
   );
