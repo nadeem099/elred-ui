@@ -1,6 +1,11 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {} from "@fortawesome/free-regular-svg-icons";
 import {
+  faInstagram,
+  faFacebook,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import {
   faAngleDown,
   faShoppingCart,
   faSearch,
@@ -14,6 +19,14 @@ import {
   faMoneyBill,
   faCheck,
   faCertificate,
+  faPen,
+  faAddressBook,
+  faEnvelope,
+  faPhone,
+  faLocation,
+  faExternalLink,
+  faQuoteLeft,
+  faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -29,5 +42,16 @@ library.add(
   faInfo,
   faMoneyBill,
   faCheck,
-  faCertificate
+  faCertificate,
+  faPen,
+  faAddressBook,
+  faEnvelope,
+  faPhone,
+  faLocation,
+  faExternalLink,
+  faQuoteLeft,
+  faGlobe,
+  faInstagram,
+  faFacebook,
+  faTwitter
 );

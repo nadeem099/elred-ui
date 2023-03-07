@@ -7,7 +7,7 @@ function Header() {
   return (
     <header className="bg-white">
       <div className=" flex justify-between items-center px-3 py-2">
-        <div className="lg:pr-[13rem]">
+        <div className="lg:pr-[12rem] pl-6">
           <Link to="/">
             <img
               src="https://www.atinks.com/wp-content/uploads/2017/10/A.T-inks-logo-600-DPI-1-e1545645137933.png"

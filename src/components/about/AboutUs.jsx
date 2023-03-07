@@ -32,7 +32,7 @@ function AboutUs() {
           Verify Company
         </div>
       </div>
-      <p>
+      <p className="max-w-3xl">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium
         dignissimos et saepe velit. Minima ducimus adipisci odit aliquam?
         Corporis consequuntur ex est maiores modi consequatur deleniti aut

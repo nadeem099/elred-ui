@@ -10,7 +10,7 @@ function MasterLayout(props) {
       <Header />
       <section className="flex p-4 gap-x-4">
         <SideBar>{sideBarNav}</SideBar>
-        <main>
+        <main className="w-full">
           <div className="bg-white py-5 px-10">{currMain}</div>
         </main>
       </section>

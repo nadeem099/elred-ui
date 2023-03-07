@@ -7,7 +7,7 @@ function Default() {
   const { currNav = "" } = useParams();
 
   const { name } = find(navItems, (item) => {
-    if (item.navUrl === currNav) return item;
+    if (item.toUrl === currNav) return item;
     return null;
   });
   return <div>{name}</div>;

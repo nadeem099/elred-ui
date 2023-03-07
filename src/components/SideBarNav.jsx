@@ -14,12 +14,12 @@ function SideBarNav(props) {
         <ul>
           {navItems &&
             navItems.map((item = {}) => {
-              const { id, icon, name, navUrl } = item;
+              const { id, icon, name, toUrl } = item;
               const activeNavStyles =
-                currNav === navUrl ? "bg-red-100 text-red-700" : "";
+                currNav === toUrl ? "bg-red-100 text-red-700" : "";
               return (
                 <li key={id}>
-                  <Link to={`/${navUrl}`}>
+                  <Link to={`/${toUrl}`}>
                     <div
                       className={`text-gray-400 py-3 px-2 ${activeNavStyles}`}
                     >
