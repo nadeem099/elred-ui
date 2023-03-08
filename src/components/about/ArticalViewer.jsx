@@ -28,14 +28,12 @@ function ArticalViewer({ article = {} }) {
       <div className="border-2 p-8">
         <div className="text-sm font-semibold mb-8">Table of Contents:</div>
         {contents.map(({ contentId, contentName }) => {
-          const activeClass = contentId === activeContentId ? "text-black" : "";
+          const activeClass =
+            contentId === activeContentId ? "text-black" : "text-gray-400";
           return (
-            <div className="my-2">
-              <button
-                key={contentId}
-                onClick={() => setActiveContentId(contentId)}
-              >
-                <span className={`text-gray-400 text-sm py-2 ${activeClass}`}>
+            <div key={contentId} className="my-2">
+              <button onClick={() => setActiveContentId(contentId)}>
+                <span className={` text-sm py-2 ${activeClass}`}>
                   {contentName}
                 </span>
               </button>

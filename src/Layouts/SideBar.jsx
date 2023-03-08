@@ -16,7 +16,7 @@ function SideBar(props) {
         <div className="shadow-gray-200 shadow-md border flex flex-col items-center px-6 py-3 mt-12">
           <div className="relative w-8 rounded-full bg-gray-200 p-1 text-center font-bold text-gray-50">
             <span className="absolute bottom-[1px] left-[2px] w-5 h-5 bg-gray-200"></span>
-            <span className="relative z-10">?</span>
+            <span className="relative z-[5]">?</span>
           </div>
           <p className="font-bold">Need help?</p>
           <p className="w-36 text-center py-4">

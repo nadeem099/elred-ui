@@ -4,6 +4,8 @@ import reduce from "lodash/reduce";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactCard from "./ContactCard";
 import CommonCard from "./CommonCard";
+import SidePopup from "../SidePopup";
+import Backdrop from "./Backdrop";
 
 function AboutUsInfo(props) {
   const { infoCards } = props;
@@ -17,53 +19,84 @@ function AboutUsInfo(props) {
       {}
     );
   });
+  const [showSidePopup, setShowSidePopup] = useState(false);
+  const [popUpData, setPopupData] = useState({});
+
+  const handleEditClick = (id) => {
+    setShowSidePopup(true);
+    setPopupData({ id });
+  };
 
   return (
     <div className="flex gap-4 flex-wrap">
-      {infoCards.map(({ id, name, plusBtn, cardContent, iconHeading }) => {
-        return (
-          <div
-            key={id}
-            className="flex justify-between border-2 rounded-lg p-3 basis-[22rem]"
-          >
-            {id === "card-contact" ? (
-              <ContactCard
-                id={id}
-                name={name}
-                displayAllContacts={displayFullCardContent[id]}
-                cardContent={cardContent}
-                iconHeading={iconHeading}
-              />
-            ) : (
-              <CommonCard
-                id={id}
-                name={name}
-                displayAllContacts={displayFullCardContent[id]}
-                cardContent={cardContent}
-                iconHeading={iconHeading}
-              />
-            )}
-            <div>
-              <div>
-                <button className="text-red-500 ml-1">
-                  <FontAwesomeIcon icon={["fas", "pen"]} />
-                </button>
-              </div>
-              {plusBtn && (
-                <button
-                  onClick={() =>
-                    setFullCardContent((prev) => ({ ...prev, [id]: !prev[id] }))
-                  }
-                >
-                  <div className="border rounded-full mt-12 p-1 bg-red-100 text-red-500 text-xs">
-                    + 5
-                  </div>
-                </button>
+      {infoCards.map(
+        (
+          { id, name, plusBtn, cardContent, iconHeading, cardItemsCount },
+          index
+        ) => {
+          return (
+            <div
+              key={id}
+              className="flex justify-between border-2 rounded-lg p-3 basis-[22rem]"
+            >
+              {id === "card-contact" ? (
+                <ContactCard
+                  id={id}
+                  name={name}
+                  displayAllContacts={displayFullCardContent[id]}
+                  cardContent={cardContent}
+                  iconHeading={iconHeading}
+                />
+              ) : (
+                <CommonCard
+                  id={id}
+                  name={name}
+                  displayAllContacts={displayFullCardContent[id]}
+                  cardContent={cardContent}
+                  iconHeading={iconHeading}
+                />
               )}
+              <div>
+                <div>
+                  <button
+                    className="text-red-500 ml-1"
+                    onClick={() => handleEditClick(id)}
+                  >
+                    <FontAwesomeIcon icon={["fas", "pen"]} />
+                  </button>
+                </div>
+                <>
+                  {index === 0 && (
+                    <>
+                      {showSidePopup && (
+                        <Backdrop
+                          showBackDrop={showSidePopup}
+                          hideBackDropAndModal={() => setShowSidePopup(false)}
+                        />
+                      )}
+                      <SidePopup popUpData={popUpData} isOpen={showSidePopup} />
+                    </>
+                  )}
+                </>
+                {plusBtn && (
+                  <button
+                    onClick={() =>
+                      setFullCardContent((prev) => ({
+                        ...prev,
+                        [id]: !prev[id],
+                      }))
+                    }
+                  >
+                    <div className="border rounded-full mt-12 p-1 bg-red-100 text-red-500 text-xs">
+                      + {cardItemsCount}
+                    </div>
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        }
+      )}
     </div>
   );
 }
@@ -75,6 +108,7 @@ AboutUsInfo.defaultProps = {
       name: "Contact",
       plusBtn: true,
       iconHeading: "address-book",
+      cardItemsCount: 3,
       cardContent: {
         emailIcon: "envelope",
         phoneIcon: "phone",
@@ -101,7 +135,7 @@ AboutUsInfo.defaultProps = {
       },
     },
     {
-      id: "card-adress",
+      id: "card-address",
       name: "Address",
       iconHeading: "address-book",
       cardContent: {
@@ -151,6 +185,7 @@ AboutUsInfo.defaultProps = {
       name: "Statement",
       iconHeading: "address-book",
       plusBtn: true,
+      cardItemsCount: 2,
       cardContent: [
         "You think it we ink it.",
         "We ink it even before you think it.",
@@ -164,3 +199,10 @@ AboutUsInfo.prototype = {
 };
 
 export default AboutUsInfo;
+
+// user story1: when I click edit button it should open sidebar popup
+// user story2: when sidebar popup opens it should i have form depending on where it was clicked
+// from
+
+// user story1:
+// create a state, event handler, on click set the state,
