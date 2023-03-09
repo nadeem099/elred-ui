@@ -6,37 +6,37 @@ function CommonCard({
   id,
   name,
   displayAllContacts,
-  cardContent,
+  cardData,
   iconHeading,
 }) {
 
   const constructCardBody = () => {
     // if body is string
-    if (typeof cardContent === "string") {
-      return cardContent;
+    if (typeof cardData === "string") {
+      return cardData;
     }
 
     // if body is array of strings
     // some return true if any element matches the condition so it has to be reversed(!)
     if (
-      Array.isArray(cardContent) &&
-      !cardContent.some((v) => typeof v !== "string")
+      Array.isArray(cardData) &&
+      !cardData.some((v) => typeof v !== "string")
     ) {
       const final = [
-        <p>{cardContent[0]}</p>,
-        displayAllContacts ? <p>{cardContent.slice(1)}</p> : "",
+        <p>{cardData[0]}</p>,
+        displayAllContacts ? <p>{cardData.slice(1)}</p> : "",
       ];
       return final;
     }
 
     // if body is object with every property value as string
     if (
-      typeof cardContent === "object" &&
-      !Array.isArray(cardContent) &&
-      cardContent !== null
+      typeof cardData === "object" &&
+      !Array.isArray(cardData) &&
+      cardData !== null
     ) {
       let finalValue = "";
-      forOwn(cardContent, (value) => {
+      forOwn(cardData, (value) => {
         finalValue += `${value}, `;
       });
       return finalValue;
@@ -44,10 +44,10 @@ function CommonCard({
 
     // if body is array of objects and every property value as string
     // property value is not checked for string
-    if (Array.isArray(cardContent)) {
+    if (Array.isArray(cardData)) {
       return (
         <div className="flex">
-          {cardContent.map((obj) => {
+          {cardData.map((obj) => {
             if (obj.iconName) {
               const iconType = ["instagram", "facebook", "twitter"].includes(
                 obj.id

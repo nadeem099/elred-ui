@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ArticalViewer({ article = {} }) {
   const { name, contents = [] } = article;
@@ -11,7 +12,15 @@ function ArticalViewer({ article = {} }) {
   return (
     <div className="flex justify-between">
       <div className="flex-1">
-        <h2 className="text-lg font-semibold">{name}</h2>
+        <h2 className="text-lg font-semibold inline-block">{name}</h2>
+        <button>
+          <FontAwesomeIcon
+            icon={["fas", "pen"]}
+            size="md"
+            color="red"
+            className="mx-2"
+          />
+        </button>
         {contents.map(({ contentId, contentName, contentText }, index) => {
           return (
             contentId === activeContentId && (
@@ -44,46 +53,6 @@ function ArticalViewer({ article = {} }) {
     </div>
   );
 }
-
-ArticalViewer.defaultProps = {
-  article: {
-    name: "Your Privacy Matters",
-    contents: [
-      {
-        contentId: "article-introduction",
-        contentName: "Introduction",
-        contentText:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque asperiores dicta id pariatur voluptates veritatis molestias officiis eius, optio quae voluptatum ab inventore illum? Veniam porro esse ducimus suscipit.",
-      },
-      {
-        contentId: "article-data-collect",
-        contentName: "Data we collect",
-        contentText:
-          "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque asperiores dicta id pariatur voluptates veritatis molestias officiis eius, optio quae voluptatum ab inventore illum? Veniam porro esse ducimus suscipit.",
-      },
-      {
-        contentId: "article-data-use",
-        contentName: "How we use your data",
-        contentText: "Lorem ipsum",
-      },
-      {
-        contentId: "article-share-information",
-        contentName: "How we share information",
-        contentText: "Lorem ipsum",
-      },
-      {
-        contentId: "article-choices-obligations",
-        contentName: "Your choices and obligations",
-        contentText: "Lorem ipsum",
-      },
-      {
-        contentId: "Other-info",
-        contentName: "Other imortant information",
-        contentText: "Lorem ipsum",
-      },
-    ],
-  },
-};
 
 ArticalViewer.prototype = {
   article: PropTypes.shape({}),

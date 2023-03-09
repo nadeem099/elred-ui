@@ -34,7 +34,7 @@ export const navItems = [
   },
   {
     id: "nav-team-members",
-    icon: "people-group",
+    icon: "user-group",
     name: "Team Members",
     toUrl: MainNavs.teamMembers,
     component: "Default",
@@ -55,7 +55,7 @@ export const navItems = [
   },
   {
     id: "nav-awards-honours",
-    icon: "award",
+    icon: "trophy",
     name: "Awards & Honours",
     toUrl: MainNavs.awardsHonours,
     component: "Default",
@@ -69,7 +69,7 @@ export const navItems = [
   },
   {
     id: "nav-payment-info",
-    icon: "money-bill",
+    icon: "money-bills",
     name: "Payment Info",
     toUrl: MainNavs.paymentInfo,
     component: "Default",
@@ -108,3 +108,79 @@ export const AboutUsItems = [
     component: "",
   },
 ];
+
+const privacyArticle = {
+  name: "Your Privacy Matters",
+  contents: [
+    {
+      contentId: "article-introduction",
+      contentName: "Introduction",
+      contentText:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque asperiores dicta id pariatur voluptates veritatis molestias officiis eius, optio quae voluptatum ab inventore illum? Veniam porro esse ducimus suscipit.",
+    },
+    {
+      contentId: "article-data-collect",
+      contentName: "Data we collect",
+      contentText:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque asperiores dicta id pariatur voluptates veritatis molestias officiis eius, optio quae voluptatum ab inventore illum? Veniam porro esse ducimus suscipit.",
+    },
+    {
+      contentId: "article-data-use",
+      contentName: "How we use your data",
+      contentText: "Lorem ipsum",
+    },
+    {
+      contentId: "article-share-information",
+      contentName: "How we share information",
+      contentText: "Lorem ipsum",
+    },
+    {
+      contentId: "article-choices-obligations",
+      contentName: "Your choices and obligations",
+      contentText: "Lorem ipsum",
+    },
+    {
+      contentId: "Other-info",
+      contentName: "Other imortant information",
+      contentText: "Lorem ipsum",
+    },
+  ],
+};
+
+const termsConditionArticle = {
+  name: "Terms & Condition",
+  contents: [
+    {
+      contentId: "article-agreement",
+      contentName: "Agreement",
+      contentText:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque asperiores dicta id pariatur voluptates veritatis molestias officiis eius, optio quae voluptatum ab inventore illum? Veniam porro esse ducimus suscipit.",
+    },
+    {
+      contentId: "article-services-subscription",
+      contentName: "Services & Paid Subscription",
+      contentText:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque asperiores dicta id pariatur voluptates veritatis molestias officiis eius, optio quae voluptatum ab inventore illum? Veniam porro esse ducimus suscipit.",
+    },
+    {
+      contentId: "article-rights-laws",
+      contentName: "Rights & Laws",
+      contentText: "Lorem ipsum",
+    },
+    {
+      contentId: "article-third-party",
+      contentName: "3rd Party Applications",
+      contentText: "Lorem ipsum",
+    },
+    {
+      contentId: "article-rights-granted",
+      contentName: "Rights you grant us",
+      contentText: "Lorem ipsum",
+    },
+  ],
+};
+
+export const articles = {
+  "privacy-policy": privacyArticle,
+  "terms-condition": termsConditionArticle,
+};

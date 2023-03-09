@@ -3,12 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import isEmpty from "lodash/isEmpty";
 import AboutUsInfo from "./AboutUsInfo";
 import ArticalViewer from "./ArticalViewer";
-import { AboutUsItems, AboutUsNavs } from "../../helpers";
+import { AboutUsItems, AboutUsNavs, articles } from "../../helpers";
 
 function AboutUsNav() {
   const { pathname, hash } = useLocation();
   const hashValue = hash.slice(1);
-  console.log(hashValue);
 
   return (
     <div className="py-10">
@@ -33,8 +32,12 @@ function AboutUsNav() {
         {(isEmpty(hashValue) || hashValue === AboutUsNavs.info) && (
           <AboutUsInfo />
         )}
-        {hashValue === AboutUsNavs.privacyPolicy && <ArticalViewer />}
-        {hashValue === AboutUsNavs.termsCondition && <ArticalViewer />}
+        {hashValue === AboutUsNavs.privacyPolicy && (
+          <ArticalViewer article={articles[hashValue]} />
+        )}
+        {hashValue === AboutUsNavs.termsCondition && (
+          <ArticalViewer article={articles[hashValue]} />
+        )}
         {(hashValue === AboutUsNavs.FAQ ||
           hashValue === AboutUsNavs.complaintsFeedBack) && (
           <div>

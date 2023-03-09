@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 
 function ContactCard(props) {
   const {
-    cardContent: { contactLines = [], emailIcon, phoneIcon } = {},
+    cardData = [],
     name,
     iconHeading,
+    emailIcon,
+    phoneIcon,
     displayAllContacts = false,
   } = props;
   return (
@@ -24,11 +26,11 @@ function ContactCard(props) {
       </div>
       {/* card inner details */}
       <div className="mt-8">
-        {contactLines.map((contact, index) => {
-          const { lineId, lineEmails, linePhones } = contact;
+        {cardData.map((contact, index) => {
+          const { contactId, contactEmails, contactPhones } = contact;
           return (
-            (index === 1 || displayAllContacts) && (
-              <div key={lineId} className="mt-4">
+            (index === 0 || displayAllContacts) && (
+              <div key={contactId} className="mt-4">
                 <div>
                   <span className="mr-2">
                     <FontAwesomeIcon
@@ -38,8 +40,8 @@ function ContactCard(props) {
                     />
                   </span>
                   <span>
-                    {lineEmails.map((email, i) =>
-                      i == 0 ? <Fragment>{email} / </Fragment> : email
+                    {contactEmails.map((email, i) =>
+                      i == contactEmails.length - 1 ? email : <>{email} / </>
                     )}
                   </span>
                 </div>
@@ -52,8 +54,8 @@ function ContactCard(props) {
                     />
                   </span>
                   <span>
-                    {linePhones.map((phone, i) =>
-                      i == 0 ? <Fragment>{phone} / </Fragment> : phone
+                    {contactPhones.map((phone, i) =>
+                      i == contactPhones.length - 1 ? phone : <>{phone} / </>
                     )}
                   </span>
                 </div>
